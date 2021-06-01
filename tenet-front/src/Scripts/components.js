@@ -1,7 +1,7 @@
-import Home from "../View/Home";
-import Authentication from "../View/Authentication";
-import Login from "../View/Login";
-import Register from "../View/Register";
+import Home from "../Home/Home";
+import Authentication from "../Authentication/Authentication";
+import Login from "../Authentication/Login";
+import Register from "../Authentication/Register";
 
 export {
     Home,

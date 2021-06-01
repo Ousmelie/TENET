@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Login() {
+    const [usernameReg, setUsernameReg] = useState("");
+
     return (
         <div>
-            This is the Login Page
+            Login User
             <br/>
 
             <form>
