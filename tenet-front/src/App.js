@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { Home, Authentication } from './Scripts/components.js';
 import './App.css';
+import Navbar from "./Navbar/Navbar";
 
 function App() {
     const [apiResponse, setApiResponse] = useState("");
@@ -16,6 +17,7 @@ function App() {
     return (
         <div>
             <BrowserRouter>
+                <Navbar/>
                 <Switch>
                     <Route exact path="/" render={() => (
                         <Redirect to="/home"/>

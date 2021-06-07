@@ -1,0 +1,106 @@
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+body {
+    font-family: 'Sergio UI', sans-serif;
+    font-weight: bold;
+}
+
+.home-top{
+    height: 700px;
+    background: #61dafb;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: white;
+    padding: 50px;
+}
+
+.home-top #title{
+    font-size: 60pt;
+    margin-bottom: 30px;
+}
+
+.home-top #text{
+    width: 450px;
+    font-size: 20pt;
+    margin-bottom: 30px;
+}
+
+.home-top #link{
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+    padding: 5px;
+}
+
+.link-button{
+    background-color: rgba(54, 73, 60, 0.95);
+    border-radius: 5px;
+}
+
+
+
+.home-steps{
+    height: 400px;
+    background: #EEEEEE;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #555555;
+}
+
+.home-steps #title{
+    font-size: 60pt;
+    margin-bottom: 30px;
+}
+
+.home-steps #text{
+    font-size: 20pt;
+}
+
+
+.home-fast{
+    height: 530px;
+    background: #36493C;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.home-interface{
+    height: 530px;
+    background: #F5F5F5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.home-follow{
+    height: 530px;
+    background: #EEEEEE;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.home-circles{
+    height: 400px;
+    background: #F5F5F5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
