@@ -24,11 +24,11 @@ function Home(props) {
                         display: "flex",
                         justifyContent: "flex-start"
                     }}>
-                        <Link to={"/about"} id="link" className={"link-button"}>
-                            <span id="presentation-button">PRESENTATION</span>
+                        <Link to={"/register"} id="link" className={"link-button"}>
+                            <span id="connect-button">S'inscrire</span>
                         </Link>
 
-                        <Link to={"/faq"} id="link">
+                        <Link to={"/presentation"} id="link">
                             <span>EN SAVOIR PLUS</span>
                         </Link>
                     </div>
