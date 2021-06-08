@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { Home, Authentication } from './Scripts/components.js';
+import { Home, Login, Register } from './Scripts/components.js';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
 
@@ -23,9 +23,10 @@ function App() {
                         <Redirect to="/home"/>
                     )}/>
                     <Route path="/home" render={() => (
-                        <Home stuff={apiResponse} />
+                        <Home/>
                     )}/>
-                    <Route path="/authentication" component={Authentication}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
                 </Switch>
             </BrowserRouter>
         </div>

@@ -1,39 +1,132 @@
-@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+@font-face {
+    font-family: "Segoe UI Semibold";
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot");
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff") format("woff"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.svg#Segoe UI Semibold") format("svg");
+}
 
-.navbar-container{
-    /*#36493C*/
-    background-color: rgba(54, 73, 60, 0.95);
-    width: 100%;
-    position: fixed;
-    min-height: 100px;
-    top: 0;
-    color: white;
-    font-family: 'Sergio UI', sans-serif;
-    font-weight: bold;
-    font-size: 10pt;
-
+.navbar{
+    background-color: #36493C;
+    height: 100px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    padding-right: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    color: white;
+    font-family: 'Sergio UI Semibold', sans-serif;
+    font-size: 20pt;
 }
 
-.navbar-links{
+.navbar-container {
     display: flex;
-    float: right;
-    justify-content: end;
-    flex-wrap: wrap;
-
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    max-width: 1500px;
 }
 
-.navbar-item{
+.navbar-logo {
+    align-items: center;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    flex-grow: 1;
+}
+
+
+.navbar-logo #safer{
+    font-size: 35pt;
+    margin-right: 10px;
+}
+
+.navbar-logo #tenet{
+    font-size: 10pt;
+}
+
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin-right: 2rem;
+}
+
+.navbar-links {
     color: white;
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    border-bottom: 3px solid transparent;
 }
 
-.navbar-item span{
-    margin-right: 20px;
+.navbar-item {
+    line-height: 40px;
+    margin-right: 1rem;
+}
+
+.navbar-item:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.navbar-item:hover:after {
+    width: 100%;
+    background: #6a9979;
+}
+
+.navbar-item .active {
+    color: #6a9979;
+}
+
+.navbar-icon {
+    display: none;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -110%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .navbar-menu.active {
+        background-color: #36493C;
+        left: 0;
+        top: 70px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1000;
+    }
+    .navbar-item .active {
+        color: #6a9979;
+        border: none;
+    }
+    .navbar-links {
+        padding: 20px;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 30pt;
+        cursor: pointer;
+    }
 }

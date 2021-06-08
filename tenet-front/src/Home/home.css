@@ -1,47 +1,73 @@
-@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
-body {
-    font-family: 'Sergio UI', sans-serif;
-    font-weight: bold;
+@font-face {
+    font-family: "Segoe UI Semibold";
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot");
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff") format("woff"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.svg#Segoe UI Semibold") format("svg");
 }
 
-.home-top{
-    height: 700px;
-    background: #61dafb;
+.home-page {
+    font-family: "Segoe UI Semibold", sans-serif;
+}
+
+.home-top {
+    background: linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(132,132,132,0.62) 100%);
+    position: relative;
+}
+
+.home-top #image-background{
+    width: 100%;
+    z-index: -1;
+    display: block;
+    position: relative;
+    user-select: none
+}
+
+.home-top .home-top-image-container{
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 20%;
+    z-index: 1000;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
+    padding-left: 50px;
 
     color: white;
-    padding: 50px;
+
+    z-index: 2;
 }
 
-.home-top #title{
-    font-size: 60pt;
+.home-top #title {
+    font-family: "Segoe UI Semibold", sans-serif;
+    font-size: 5vw;
+    margin-bottom: 10px;
+}
+
+.home-top #text {
+    width: 40%;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1.8vw;
+    font-weight: normal;
     margin-bottom: 30px;
 }
 
-.home-top #text{
-    width: 450px;
-    font-size: 20pt;
-    margin-bottom: 30px;
-}
-
-.home-top #link{
+.home-top #link {
+    font-family: "Segoe UI Semibold", sans-serif;
     color: white;
+    font-size: 2vw;
     text-decoration: none;
     margin-right: 30px;
     padding: 5px;
 }
 
-.link-button{
+.link-button {
     background-color: rgba(54, 73, 60, 0.95);
     border-radius: 5px;
 }
 
 
-
-.home-steps{
+.home-steps {
     height: 400px;
     background: #EEEEEE;
 
@@ -53,54 +79,181 @@ body {
     color: #555555;
 }
 
-.home-steps #title{
-    font-size: 60pt;
-    margin-bottom: 30px;
+.home-steps #title {
+    font-family: "Segoe UI Semibold", sans-serif;
+    font-size: 5vw;
+    margin-bottom: 10px;
 }
 
-.home-steps #text{
-    font-size: 20pt;
+.home-steps #text {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1.8vw;
+    font-weight: normal;
+}
+
+@media (max-width: 900px) {
+    .home-steps {
+        height: fit-content;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
 
 
-.home-fast{
+.home-split {
     height: 530px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.home-split div{
+    width: 40%;
+}
+
+.home-split #image-split {
+    width: 40%;
+    user-select: none
+}
+
+.home-split #title {
+    font-family: "Segoe UI Semibold", sans-serif;
+    font-size: 2.5vw;
+    margin-bottom: 10px;
+}
+
+.home-split #text {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1.5vw;
+    font-weight: normal;
+    width: 80%;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .home-split {
+        height: fit-content;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .home-split div{
+        width: 90%;
+    }
+
+    .home-split #image-split {
+        width: 60%;
+        margin-bottom: 20px;
+    }
+
+    .home-split #title {
+        font-size: 5vw;
+        margin-bottom: 20px;
+    }
+
+    .home-split #text {
+        font-size: 3vw;
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+}
+
+
+.home-fast {
     background: #36493C;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white;
 }
 
 
-
-.home-interface{
-    height: 530px;
-    background: #F5F5F5;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home-interface {
+    background: #EEEEEE;
+    color: #555555;
 }
 
 
+.home-follow {
+    background: #FFFFFF;
+    color: #555555;
+}
 
-.home-follow{
-    height: 530px;
+
+.home-circles {
+    height: fit-content;
     background: #EEEEEE;
 
     display: flex;
     align-items: center;
+    justify-content: space-around;
+
+    padding: 50px 100px;
+
+}
+
+.home-circles .vertical-flex{
+    height: 100%
+}
+
+.home-circles #text{
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1.5vw;
+    font-weight: normal;
+    color: #555555;
+    width: 70%;
+    text-align: center;
+}
+
+.home-circle-icon {
+    width: 10vw;
+    height: 10vw;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #36493C;
+    margin-bottom: 30px;
+
+    display: flex;
     justify-content: center;
+    align-items: center;
+
+    font-size: 5vw;
+}
+
+@media (max-width: 900px) {
+    .home-circles{
+        height: fit-content;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .home-circles #text{
+        margin-bottom: 50px;
+        width: 90%;
+        font-size: 3vw;
+    }
+
+    .home-circle-icon{
+        width: 15vw;
+        height: 15vw;
+
+        font-size: 7.5vw;
+    }
 }
 
 
-
-.home-circles{
-    height: 400px;
-    background: #F5F5F5;
-
+.vertical-flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.horizontal-flex {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
