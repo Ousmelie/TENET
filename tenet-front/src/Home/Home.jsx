@@ -25,7 +25,7 @@ function Home(props) {
                         justifyContent: "flex-start"
                     }}>
                         <Link to={"/register"} id="link" className={"link-button"}>
-                            <span id="connect-button">S'inscrire</span>
+                            <span id="connect-button">SE CONNECTER</span>
                         </Link>
 
                         <Link to={"/presentation"} id="link">
