@@ -6,6 +6,7 @@ import image1 from "../images/195414245_146371470876454_4608462346851878142_n.jp
 import image2 from "../images/194350506_923775761803197_5131385384495490085_n.jpg";
 import image3 from "../images/193723231_387143789331981_5364373482014531819_n.png";
 import personalSpace from "../images/TEMPpersonalSpace.png";
+import {Button} from "@material-ui/core";
 
 
 function Home(props) {
@@ -24,12 +25,16 @@ function Home(props) {
                         display: "flex",
                         justifyContent: "flex-start"
                     }}>
-                        <Link to={"/register"} id="link" className={"link-button"}>
-                            <span id="connect-button">SE CONNECTER</span>
+                        <Link to={"/register"} id="link">
+                            <Button variant={"contained"} size={"large"} style={{backgroundColor: "#36493C", color: "white", fontWeight: "bold"}}>
+                                S'INSCRIRE
+                            </Button>
                         </Link>
 
                         <Link to={"/presentation"} id="link">
-                            <span>EN SAVOIR PLUS</span>
+                            <Button variant={"outlined"} size={"large"} style={{border: "2px solid white", color: "white", fontWeight: "bold"}}>
+                                EN SAVOIR PLUS
+                            </Button>
                         </Link>
                     </div>
                 </div>

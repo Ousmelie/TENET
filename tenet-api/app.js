@@ -29,13 +29,14 @@ app.use('/testAPI', testAPIRouter);
 let users = [];
 
 app.post('/register', (req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
 
-    console.log(username);
+    console.log("----------------");
+    console.log(email);
     console.log(password);
 
-    users.push([username, password]);
+    users.push([email, password]);
     console.log(users);
     res.send(users);
 })
