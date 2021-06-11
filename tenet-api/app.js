@@ -6,8 +6,10 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
+
+const dbUsers = require('./routes/users');
+
 
 var app = express();
 
@@ -23,23 +25,50 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 
-let users = [];
 
-app.post('/register', (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
 
-    console.log("----------------");
-    console.log(email);
-    console.log(password);
-
-    users.push([email, password]);
-    console.log(users);
-    res.send(users);
+const Pool = require('pg').Pool
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'tenet',
+    password: 'admin',
+    port: 5432,
 })
+
+// app.get('/users', dbUsers.getUsers)
+// app.get('/users/:id', dbUsers.getUserById)
+// app.post('/users', dbUsers.createUser)
+// app.put('/users/:id', dbUsers.updateUser)
+// app.delete('/users/:id', dbUsers.deleteUser)
+
+
+app.get('/register', (req, res) => {
+    console.log("Entered get")
+    pool.query('SELECT * FROM user ORDER BY user_id ASC', (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.status(200).json(results.rows)
+    })
+})
+
+//
+// app.post('/register', (req, res) => {
+//     const email = req.body.email;
+//     const password = req.body.password;
+//
+//     console.log("----------------");
+//     console.log(email);
+//     console.log(password);
+//
+//     users.push([email, password]);
+//     console.log(users);
+//     res.send(users);
+// })
+
 
 
 // catch 404 and forward to error handler

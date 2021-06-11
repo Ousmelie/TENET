@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Axios from 'axios';
 import {Button} from "@material-ui/core";
 import "./authentication.css"
@@ -12,14 +12,26 @@ function Register() {
     const [birthDateReg, setBirthDateReg] = useState("");
     const [pedCaseReg, setPedCaseReg] = useState("");
 
-    function registerUser() {
-        console.log("Registering")
-        Axios.post("http://localhost:9000/register", {
-            email: emailReg,
-            password: passwordReg,
-        }).then((res) => {
+    useEffect(() => {
+        Axios.get("http://localhost:9000/register").then((res) => {
+            console.log("Go?");
             console.log(res);
         })
+    })
+
+    function registerUser() {
+        if (passwordReg == passwordConfirmationReg){
+            console.log("Passwords match, Registering")
+            Axios.post("http://localhost:9000/register", {
+                name: nameReg,
+                email: emailReg,
+                password: passwordReg,
+            }).then((res) => {
+                console.log("Go?");
+                console.log(res);
+            })
+        }else {console.log("Passwords dont match")}
+
     }
 
     return (
