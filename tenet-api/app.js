@@ -28,46 +28,15 @@ app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
 
 
+app.post('/register', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'tenet',
-    password: 'admin',
-    port: 5432,
+    console.log("----------------");
+    console.log(email);
+    console.log(password);
+
 })
-
-// app.get('/users', dbUsers.getUsers)
-// app.get('/users/:id', dbUsers.getUserById)
-// app.post('/users', dbUsers.createUser)
-// app.put('/users/:id', dbUsers.updateUser)
-// app.delete('/users/:id', dbUsers.deleteUser)
-
-
-app.get('/register', (req, res) => {
-    console.log("Entered get")
-    pool.query('SELECT * FROM user ORDER BY user_id ASC', (error, results) => {
-        if (error) {
-            throw error
-        }
-        res.status(200).json(results.rows)
-    })
-})
-
-//
-// app.post('/register', (req, res) => {
-//     const email = req.body.email;
-//     const password = req.body.password;
-//
-//     console.log("----------------");
-//     console.log(email);
-//     console.log(password);
-//
-//     users.push([email, password]);
-//     console.log(users);
-//     res.send(users);
-// })
 
 
 

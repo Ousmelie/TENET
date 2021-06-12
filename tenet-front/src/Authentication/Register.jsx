@@ -20,7 +20,7 @@ function Register() {
     })
 
     function registerUser() {
-        if (passwordReg == passwordConfirmationReg){
+        if (passwordReg == passwordConfirmationReg) {
             console.log("Passwords match, Registering")
             Axios.post("http://localhost:9000/register", {
                 name: nameReg,
@@ -30,7 +30,9 @@ function Register() {
                 console.log("Go?");
                 console.log(res);
             })
-        }else {console.log("Passwords dont match")}
+        } else {
+            console.log("Passwords dont match")
+        }
 
     }
 
@@ -82,7 +84,7 @@ function Register() {
                 </Link>
             </form>
         </div>
-);
+    );
 }
 
 export default Register;
