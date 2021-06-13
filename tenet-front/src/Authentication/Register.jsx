@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Axios from 'axios';
 import {Button} from "@material-ui/core";
 import "./authentication.css"
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Register() {
     const [nameReg, setNameReg] = useState("");
@@ -10,40 +10,28 @@ function Register() {
     const [passwordReg, setPasswordReg] = useState("");
     const [passwordConfirmationReg, setPasswordConfirmationReg] = useState("");
     const [birthDateReg, setBirthDateReg] = useState("");
+    const [pedCaseReg, setPedCaseReg] = useState("");
 
-    Axios.defaults.withCredentials = true;
-
-    let history = useHistory();
     useEffect(() => {
-        Axios.get("http://localhost:9000/isLoggedIn")
-            .then((res) => {
-                if (res.data.loggedIn == true){
-                    history.push("/myspace");
-                }
-            })
+        Axios.get("http://localhost:9000/register").then((res) => {
+            console.log("Go?");
+            console.log(res);
+        })
     })
 
     function registerUser() {
         if (passwordReg == passwordConfirmationReg) {
-            console.log("Passwords match, Registering");
-
+            console.log("Passwords match, Registering")
             Axios.post("http://localhost:9000/register", {
-                fullName: nameReg,
+                name: nameReg,
                 email: emailReg,
                 password: passwordReg,
-                birthDate: birthDateReg
             }).then((res) => {
+                console.log("Go?");
                 console.log(res);
-            });
-
-            console.log("User Registered Successfully");
-            alert("User Registered Successfully")
-
-            history.push("/login");
-
-
+            })
         } else {
-            console.log("Passwords dont match");
+            console.log("Passwords dont match")
         }
 
     }
@@ -80,7 +68,10 @@ function Register() {
                     <label htmlFor={"birthDate"}>Date de Naissance</label>
                 </div>
 
-                {/*Add user type*/}
+                <div className={"form-input"}>
+                    <input type={"text"} id={"pedCase"} required onChange={(e) => setPedCaseReg(e.target.value)}/>
+                    <label htmlFor={"pedCase"}>Cas PED (Renseigné Par Le Responsable Soignant)</label>
+                </div>
 
                 <Button variant={"contained"} size={"large"} style={{backgroundColor: "#36493C", color: "white", fontWeight: "bold"}} type={"submit"} onClick={registerUser}>
                     M'INSCRIRE

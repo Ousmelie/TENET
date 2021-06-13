@@ -1,11 +1,19 @@
 import React, {useEffect, useState} from "react";
-import {BrowserRouter, Route, Switch, Redirect, useHistory} from 'react-router-dom';
-import { Home, Login, Register, MySpace } from './Scripts/components.js';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import { Home, Login, Register } from './Scripts/components.js';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
-import Axios from "axios";
 
 function App() {
+    const [apiResponse, setApiResponse] = useState("");
+
+    useEffect(() => {
+            fetch("http://localhost:9000/testAPI")
+                .then(res => res.text())
+                .then(res => setApiResponse(res))
+        }
+    );
+
     return (
         <div>
             <BrowserRouter>
@@ -19,7 +27,6 @@ function App() {
                     )}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
-                    <Route path="/myspace" component={MySpace}/>
                 </Switch>
             </BrowserRouter>
         </div>
