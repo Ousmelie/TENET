@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { Home, Authentication } from './Scripts/components.js';
+import { Home, Authentication, WebRtc} from './Scripts/components.js';
+
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                         <Home stuff={apiResponse} />
                     )}/>
                     <Route path="/authentication" component={Authentication}/>
+                    <Route path="/webrtc" component={WebRtc}/>
                 </Switch>
             </BrowserRouter>
         </div>
