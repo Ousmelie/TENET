@@ -6,10 +6,8 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
-
-const dbUsers = require('./routes/users');
-
 
 var app = express();
 
@@ -25,19 +23,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 
+let users = [];
 
 app.post('/register', (req, res) => {
-    const email = req.body.email;
+    const username = req.body.username;
     const password = req.body.password;
 
-    console.log("----------------");
-    console.log(email);
+    console.log(username);
     console.log(password);
 
+    users.push([username, password]);
+    console.log(users);
+    res.send(users);
 })
-
 
 
 // catch 404 and forward to error handler

@@ -1,24 +1,40 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Axios from 'axios';
 import {Button} from "@material-ui/core";
 import "./authentication.css"
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function Login() {
     const [emailLog, setEmailLog] = useState("");
     const [passwordLog, setPasswordLog] = useState("");
 
+    Axios.defaults.withCredentials = true;
+
     function loginUser() {
         console.log("Logging in");
-        console.log(emailLog);
-        console.log(passwordLog);
-        // Axios.post("http://localhost:9000/register", {
-        //     email: emailReg,
-        //     password: passwordReg,
-        // }).then((res) => {
-        //     console.log(res);
-        // })
+        Axios.post("http://localhost:9000/login", {
+            email: emailLog,
+            password: passwordLog,
+        }).then((res) => {
+            console.log(res);
+            redirectIfLoggedIn();
+        })
     }
+
+    let history = useHistory();
+    function redirectIfLoggedIn() {
+        Axios.get("http://localhost:9000/isLoggedIn")
+            .then((res) => {
+                console.log(res);
+                if (res.data.loggedIn == true){
+                    history.push("/myspace");
+                }
+            })
+    }
+
+    useEffect(() => {
+        redirectIfLoggedIn();
+    })
 
     return (
         <div className={"form-container"}>
@@ -37,7 +53,7 @@ function Login() {
                     <label htmlFor={"password"}>Mot de Passe</label>
                 </div>
 
-                <Button variant={"contained"} size={"large"} style={{backgroundColor: "#36493C", color: "white", fontWeight: "bold"}} type={"submit"} onClick={loginUser}>
+                <Button variant={"contained"} size={"large"} style={{backgroundColor: "#36493C", color: "white", fontWeight: "bold"}} onClick={loginUser}>
                     ME CONNECTER
                 </Button>
 
