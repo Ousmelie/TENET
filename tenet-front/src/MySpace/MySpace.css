@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Segoe UI Semibold";
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot");
+    src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff") format("woff"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.svg#Segoe UI Semibold") format("svg");
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Sergio UI Semibold', serif;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+

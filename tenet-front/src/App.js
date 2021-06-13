@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { Home, Login, Register } from './Scripts/components.js';
+import { Home, Login, Register, MySpace } from './Scripts/components.js';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
 
@@ -20,13 +20,14 @@ function App() {
                 <Navbar/>
                 <Switch>
                     <Route exact path="/" render={() => (
-                        <Redirect to="/home"/>
+                        <Redirect to="/myspace"/>
                     )}/>
-                    <Route path="/home" render={() => (
-                        <Home/>
+                    <Route path="/myspace" render={() => (
+                        <MySpace/>
                     )}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
+                    <Route path="/myspace" component={MySpace}/>
                 </Switch>
             </BrowserRouter>
         </div>
