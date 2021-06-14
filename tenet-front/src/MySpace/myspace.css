@@ -12,7 +12,8 @@
     justify-content: center;
     align-items: center;
     height: fit-content;
-    padding-top: 150px;
+    padding-top: 100px;
+    margin-bottom: 50px;
 }
 
 .mySpace .myspace_title {
@@ -24,6 +25,8 @@
     align-items: center;
     justify-content: center;
     height: 100px;
+
+    margin-bottom: 20px;
 }
 
 .mySpace .myspace_hub {

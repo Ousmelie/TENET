@@ -27,6 +27,9 @@ function Login() {
             password: passwordLog,
         }).then((res) => {
             console.log(res);
+            if (res.data.message){
+                alert(res.data.message);
+            }
         })
     }
 

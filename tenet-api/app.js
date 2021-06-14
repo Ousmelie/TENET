@@ -119,6 +119,28 @@ app.post('/logout', (req, res) => {
     }
 })
 
+app.post('/editprofile', (req, res) => {
+    const email = req.body.email;
+    const fullName = req.body.fullName;
+    const password = req.body.password;
+
+
+    bcrypt.hash(password, saltRounds, (err, hashed) => {
+        if (err){
+            console.log(err);
+        }
+
+        DBclient.query('UPDATE users SET email = $1, password = $2, full_name = $3 WHERE user_id = $4',
+            [email, hashed, fullName, req.session.user[0].user_id],
+            (error, results) => {
+                if (error) {
+                    console.log(error);
+                }
+                console.log(results);
+            });
+    });
+})
+
 
 
 

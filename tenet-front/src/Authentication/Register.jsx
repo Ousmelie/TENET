@@ -41,7 +41,8 @@ function Register() {
                 console.log(res);
             })
         } else {
-            console.log("Passwords dont match")
+            console.log("Passwords dont match");
+            alert("Passwords dont match");
         }
 
     }
