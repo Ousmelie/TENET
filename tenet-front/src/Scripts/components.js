@@ -3,6 +3,7 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import Navbar from "../Navbar/Navbar";
 import MySpace from "../MySpace/MySpace";
+import EditProfile from "../MySpace/EditProfile";
 
 export {
     Home,
@@ -10,4 +11,5 @@ export {
     Register,
     Navbar,
     MySpace,
+    EditProfile,
 }

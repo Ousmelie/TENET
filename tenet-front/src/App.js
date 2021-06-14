@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { Home, Login, Register, MySpace } from './Scripts/components.js';
+import { Home, Login, Register, MySpace, EditProfile } from './Scripts/components.js';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
 import Axios from "axios";
@@ -20,6 +20,7 @@ function App() {
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/myspace" component={MySpace}/>
+                    <Route path="/editprofile" component={EditProfile}/>
                 </Switch>
             </BrowserRouter>
         </div>
