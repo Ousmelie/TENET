@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Axios from 'axios';
 import {Button} from "@material-ui/core";
 import "./authentication.css"
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function Register() {
     const [nameReg, setNameReg] = useState("");
@@ -12,8 +12,20 @@ function Register() {
     const [birthDateReg, setBirthDateReg] = useState("");
     const [userTypeReg, setUserTypeReg] = useState("Patient");
 
-    useEffect(() => {
+    let history = useHistory();
+    Axios.defaults.withCredentials = true;
+    function checkIfLoggedIn() {
+        Axios.get("http://localhost:9000/isLoggedIn", {
+        }).then((res) => {
+            console.log(res);
+            if (res.data.login) {
+                history.push("/myspace");
+            }
+        })
+    }
 
+    useEffect(() => {
+        checkIfLoggedIn();
     })
 
     function registerUser() {

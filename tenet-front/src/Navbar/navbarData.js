@@ -5,11 +5,6 @@ export let navbarDataLoggedOut= [
     },
 
     {
-        title: "Présentation",
-        path: "/about",
-    },
-
-    {
         title: "Connexion",
         path: "/login",
     },
@@ -39,11 +34,6 @@ export let navbarDataLoggedIn= [
     {
         title: "Mon Espace",
         path: "/myspace",
-    },
-
-    {
-        title: "Présentation",
-        path: "/about",
     },
 
     {

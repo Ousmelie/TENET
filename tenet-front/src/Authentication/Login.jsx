@@ -1,12 +1,24 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
 import Axios from 'axios';
 import {Button} from "@material-ui/core";
-import "./authentication.css"
-import {Link} from "react-router-dom";
+import "./authentication.css";
 
 function Login() {
     const [emailLog, setEmailLog] = useState("");
     const [passwordLog, setPasswordLog] = useState("");
+
+    let history = useHistory();
+    Axios.defaults.withCredentials = true;
+    function checkIfLoggedIn() {
+        Axios.get("http://localhost:9000/isLoggedIn", {
+        }).then((res) => {
+            console.log(res);
+            if (res.data.login) {
+                history.push("/myspace");
+            }
+        })
+    }
 
     function loginUser() {
         console.log("Logging in");
@@ -17,6 +29,10 @@ function Login() {
             console.log(res);
         })
     }
+
+    useEffect(() => {
+        checkIfLoggedIn();
+    });
 
     return (
         <div className={"form-container"}>

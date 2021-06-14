@@ -15,15 +15,30 @@ var testAPIRouter = require('./routes/testAPI');
 
 var app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
+
+app.use(session({
+    key: "userId",
+    secret: "jA@oyga[g9P7jGD$z7krD$>3orFbjN",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires: 3600000,
+    },
+}))
 
 
 var DBclient = require('./dbconnect');
@@ -46,6 +61,19 @@ app.post('/register', (req, res) => {
     });
 })
 
+app.get('/isLoggedIn', (req, res) => {
+    if (req.session.user){
+        res.send({
+            login: true,
+            user: req.session.user,
+        })
+    }else{
+        res.send({
+            login: false,
+        })
+    }
+})
+
 app.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -61,7 +89,8 @@ app.post('/login', (req, res) => {
             if (results.rows.length>0) {
                 bcrypt.compare(password, results.rows[0].password, (err, response) =>{
                     if (response){
-                        console.log(results.rows);
+                        req.session.user = results.rows;
+                        console.log("Session User: " + req.session.user);
                         res.send(results.rows);
                     }else{
                         console.log("Wrong username/password combination")
@@ -74,6 +103,26 @@ app.post('/login', (req, res) => {
             }
         })
 })
+
+app.post('/logout', (req, res) => {
+    if (req.session.user){
+        req.session.destroy();
+        console.log("Session destroyed");
+        res.send({
+            message: "Session destroyed"
+        });
+    }else{
+        console.log("No session");
+        res.send({
+            message: "No Session"
+        });
+    }
+})
+
+
+
+
+
 
 
 // catch 404 and forward to error handler

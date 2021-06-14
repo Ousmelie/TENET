@@ -1,17 +1,33 @@
 import React, {useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {FaBars, FaTimes} from "react-icons/fa";
 
 import "./navbar.css";
 import {navbarDataLoggedOut, navbarDataLoggedIn} from "./navbarData";
+import Axios from "axios";
 
-function Navbar() {
+function Navbar(props) {
     const [navbarData, setNavbarData] = useState([])
     const [click, setClick] = useState(false)
+    const [loginStatus, setLoginStatus] = useState();
+
+    let history = useHistory();
+    Axios.defaults.withCredentials = true;
+    function checkIfLoggedIn() {
+        Axios.get("http://localhost:9000/isLoggedIn", {
+        }).then((res) => {
+            console.log(res);
+            setLoginStatus(res.data.login);
+        })
+    }
 
     useEffect(() => {
-        //Mettre la verification si logged in
-        setNavbarData(navbarDataLoggedOut);
+        checkIfLoggedIn();
+        if (loginStatus){
+            setNavbarData(navbarDataLoggedIn);
+        }else{
+            setNavbarData(navbarDataLoggedOut);
+        }
     });
 
     const handleClick = () => {
