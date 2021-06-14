@@ -4,16 +4,64 @@
     src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff") format("woff"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.svg#Segoe UI Semibold") format("svg");
 }
 
-html {
-    height: 100%;
-    width: 100%;
+.mySpace {
+    font-family: "Segoe UI Semibold", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
 }
 
-body {
-    font-family: 'Sergio UI Semibold', serif;
-    height: 100%;
-    width: 100%;
+.mySpace .myspace_title {
+    font-size: 25px;
+    color: #555555;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
 }
+
+.mySpace .myspace_hub {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.mySpace .myspace_hub #link {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    text-decoration:none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mySpace .myspace_hub #boutonEditProfil {
+    margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+
+    .myspace_hub{
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+}
+
+
+
 
 
 

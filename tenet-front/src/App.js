@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { Home, Login, Register, MySpace } from './Scripts/components.js';
 import './App.css';
 import Navbar from "./Navbar/Navbar";
+import EditProfile from "./MySpace/EditProfile";
 
 function App() {
     const [apiResponse, setApiResponse] = useState("");
@@ -20,14 +21,15 @@ function App() {
                 <Navbar/>
                 <Switch>
                     <Route exact path="/" render={() => (
-                        <Redirect to="/myspace"/>
+                        <Redirect to="/editprofile"/>
                     )}/>
-                    <Route path="/myspace" render={() => (
-                        <MySpace/>
+                    <Route path="/editprofile" render={() => (
+                        <EditProfile/>
                     )}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/myspace" component={MySpace}/>
+                    <Route path="/editprofile" component={EditProfile}/>
                 </Switch>
             </BrowserRouter>
         </div>

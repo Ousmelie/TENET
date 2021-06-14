@@ -3,6 +3,7 @@
     src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot");
     src: url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.woff") format("woff"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d4d6e1a6527a21185217393c427a52cb.svg#Segoe UI Semibold") format("svg");
 }
+
 .form-container {
     font-family: 'Segoe UI Semibold', sans-serif;
     display: flex;
@@ -100,4 +101,57 @@ input:focus ~ label, input:valid ~ label {
     font-family: 'Segoe UI Semibold', sans-serif;
     font-size: 14px;
     color: #c9c9c9;
+}
+
+.mySpace {
+    font-family: "Segoe UI Semibold", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+}
+
+.editProfile .myspace_title {
+    font-size: 25px;
+    color: #555555;
+    font-family: "Segoe UI Semibold", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.editProfile .myspace_hub {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.editProfile .myspace_hub #link {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    text-decoration:none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.editProfile .myspace_hub #boutonEditProfil {
+    margin-right: 10px;
+}
+
+.editProfile .editPDP {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

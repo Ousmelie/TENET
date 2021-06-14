@@ -24,7 +24,7 @@ function Register() {
 
     return (
         <div className={"form-container"}>
-            <form className={"authentication-form"}>
+            <form className={"editProfil-form"}>
                 <span className={"form-title"}>
                     Inscription à notre service
                 </span>
