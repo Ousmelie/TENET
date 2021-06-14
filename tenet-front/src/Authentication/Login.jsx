@@ -10,14 +10,12 @@ function Login() {
 
     function loginUser() {
         console.log("Logging in");
-        console.log(emailLog);
-        console.log(passwordLog);
-        // Axios.post("http://localhost:9000/register", {
-        //     email: emailReg,
-        //     password: passwordReg,
-        // }).then((res) => {
-        //     console.log(res);
-        // })
+        Axios.post("http://localhost:9000/login", {
+            email: emailLog,
+            password: passwordLog,
+        }).then((res) => {
+            console.log(res);
+        })
     }
 
     return (

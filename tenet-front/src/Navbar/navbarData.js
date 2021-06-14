@@ -37,8 +37,8 @@ export let navbarDataLoggedIn= [
     },
 
     {
-        title: "Déconnexion",
-        path: "/logout",
+        title: "Mon Espace",
+        path: "/myspace",
     },
 
     {

@@ -15,7 +15,7 @@ const DBclient = new pg.Client(config);
 DBclient.connect(err => {
     if (err) console.log(err);
     else {
-        console.log("DB connectée");
+        console.log("DB connection established");
     }
 });
 

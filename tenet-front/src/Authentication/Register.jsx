@@ -10,24 +10,22 @@ function Register() {
     const [passwordReg, setPasswordReg] = useState("");
     const [passwordConfirmationReg, setPasswordConfirmationReg] = useState("");
     const [birthDateReg, setBirthDateReg] = useState("");
-    const [pedCaseReg, setPedCaseReg] = useState("");
+    const [userTypeReg, setUserTypeReg] = useState("Patient");
 
     useEffect(() => {
-        Axios.get("http://localhost:9000/register").then((res) => {
-            console.log("Go?");
-            console.log(res);
-        })
+
     })
 
     function registerUser() {
         if (passwordReg == passwordConfirmationReg) {
             console.log("Passwords match, Registering")
             Axios.post("http://localhost:9000/register", {
-                name: nameReg,
                 email: emailReg,
                 password: passwordReg,
+                fullName: nameReg,
+                birthDate: birthDateReg,
+                userType: userTypeReg
             }).then((res) => {
-                console.log("Go?");
                 console.log(res);
             })
         } else {
@@ -68,10 +66,11 @@ function Register() {
                     <label htmlFor={"birthDate"}>Date de Naissance</label>
                 </div>
 
-                <div className={"form-input"}>
-                    <input type={"text"} id={"pedCase"} required onChange={(e) => setPedCaseReg(e.target.value)}/>
-                    <label htmlFor={"pedCase"}>Cas PED (Renseigné Par Le Responsable Soignant)</label>
-                </div>
+                <select className={"form-input"} onChange={(e) => setUserTypeReg(e.target.value)}>
+                    <option value="Patient" selected={"selected"}>Patient</option>
+                    <option value="Volontaire">Volontaire</option>
+                    <option value="Medecin">Médecin</option>
+                </select>
 
                 <Button variant={"contained"} size={"large"} style={{backgroundColor: "#36493C", color: "white", fontWeight: "bold"}} type={"submit"} onClick={registerUser}>
                     M'INSCRIRE
