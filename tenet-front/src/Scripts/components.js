@@ -3,6 +3,7 @@ import Authentication from "../Authentication/Authentication";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import WebRtc from "../WebRtc";
+import Reminder from '../Reminder/Reminder';
 
 export {
     Home,
@@ -10,4 +11,5 @@ export {
     Login,
     Register,
     WebRtc,
+    Reminder,
 }

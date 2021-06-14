@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { Home, Authentication, WebRtc} from './Scripts/components.js';
+import { Home, Authentication, WebRtc, Reminder} from './Scripts/components.js';
 
 import './App.css';
 
@@ -26,6 +26,7 @@ function App() {
                     )}/>
                     <Route path="/authentication" component={Authentication}/>
                     <Route path="/webrtc" component={WebRtc}/>
+                    <Route path="/webrtc" component={Reminder}/>
                 </Switch>
             </BrowserRouter>
         </div>
